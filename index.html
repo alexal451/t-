@@ -72,7 +72,7 @@
             justify-content: space-between;
             width: 100%;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 0 auto 30px;
         }
 
         .section {
@@ -85,10 +85,6 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .section:nth-child(1) {
-            margin-bottom: 30px;
         }
 
         .section:hover {
@@ -117,19 +113,23 @@
             border-bottom-right-radius: 15px;
             position: absolute;
             width: 100%;
-            transition: all 0.3s ease;
+            height: 200px; /* Aumentata l'altezza per una tendina più lunga */
+            transition: all 0.5s ease, opacity 0.5s ease; /* Transizione più lenta per l'apertura */
+            opacity: 0;
         }
 
         .section:nth-child(1):hover .cascade {
             display: block;
             bottom: 100%;
             transform: translateY(100%);
+            opacity: 1;
         }
 
         .section:nth-child(2):hover .cascade, .section:nth-child(3):hover .cascade {
             display: block;
             top: 100%;
             transform: translateY(-100%);
+            opacity: 1;
         }
 
         .cascade a {
@@ -139,6 +139,10 @@
             padding: 10px 20px;
             background-color: #fff;
             border-radius: 5px;
+            position: absolute;
+            bottom: 20px; /* Posiziona il link verso il basso della tendina */
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .cascade a:hover {
@@ -152,7 +156,7 @@
             color: #fff;
             padding: 30px;
             text-align: center;
-            margin-top: auto; /* Spinge il footer in fondo alla pagina */
+            margin-top: auto;
         }
 
         footer .social-links a {
@@ -257,13 +261,6 @@
 
     <!-- Sezioni principali - Layout a V -->
     <div class="sections">
-        <div class="section" onclick="location.href='infusioni.html';">
-            <h2>Infusioni</h2>
-            <p>Ricchissime selezioni di infusioni che rispecchiano qualità e naturalezza.</p>
-            <div class="cascade">
-                <a href="infusioni.html">Scopri di più</a>
-            </div>
-        </div>
         <div class="section-wrapper">
             <div class="section" onclick="location.href='accessori.html';">
                 <h2>Accessori</h2>
@@ -278,6 +275,14 @@
                 <div class="cascade">
                     <a href="personalizzati.html">Scopri di più</a>
                 </div>
+            </div>
+        </div>
+        <div class="section" onclick="location.href='infusioni.html';">
+            <h2>Infusioni</h2>
+            <p>Ricchissime selezioni di infusioni che rispecchiano qualità e naturalezza.</p>
+            <div class="cascade">
+                <a href="infusioni.html">Scopri di più</a>
+                <!-- Puoi aggiungere altro contenuto qui per estendere la tendina -->
             </div>
         </div>
     </div>
