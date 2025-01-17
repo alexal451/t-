@@ -3,58 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>È... l'ora del tè</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <title>E'... L'ora del tè</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Stile generale */
         body {
             margin: 0;
-            font-family: 'Lora', serif;
+            font-family: 'Playfair Display', serif;
             background-color: #F5F5DC; /* Beige chiaro */
-            color: #4b3832; /* Tono marrone scuro */
+            color: #4b3832; /* Marrone scuro */
         }
 
         /* Hero Section */
         .hero {
             position: relative;
-            background-image: url('your-image.jpg'); /* Sostituisci con il percorso della tua immagine */
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            color: #fff;
             text-align: center;
+            padding: 50px 20px;
+            background-color: #fff8dc; /* Beige tenue */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .hero h1 {
-            font-size: 4rem;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
+            font-size: 5rem; /* Intestazione più grande */
+            font-weight: 700;
+            text-transform: capitalize;
+            color: #4b3832; /* Tono marrone scuro */
+            margin: 0;
         }
 
-        /* Sezioni */
+        /* Sezioni principali */
         .sections {
             display: flex;
             justify-content: space-around;
-            padding: 20px 10px;
-            margin-top: -50px;
+            padding: 40px 20px;
         }
 
         .section {
             text-align: center;
-            padding: 20px;
-            background-color: #fff8dc; /* Beige tenue */
+            padding: 30px;
+            background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 25%;
+            width: 30%;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            background-color: #faebd7; /* Beige scuro al passaggio del mouse */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px); /* Alza leggermente la sezione */
         }
 
         .section h2 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 10px;
         }
 
@@ -81,93 +82,27 @@
         footer a:hover {
             text-decoration: underline;
         }
-
-        /* Popup Newsletter */
-        .newsletter-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0s, opacity 0.5s ease;
-        }
-
-        .newsletter-popup.active {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .newsletter-content {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .newsletter-content h2 {
-            margin-bottom: 10px;
-            font-size: 2rem;
-        }
-
-        .newsletter-content input[type="email"] {
-            padding: 10px;
-            font-size: 1rem;
-            width: 80%;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .newsletter-content button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            background-color: #4b3832; /* Marrone scuro */
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .newsletter-content button:hover {
-            background-color: #6b4e45; /* Tono più chiaro */
-        }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
     <div class="hero">
-        <h1>È... l'ora del tè</h1>
-        <!-- Sezioni in alto -->
-        <div class="sections">
-            <div class="section">
-                <h2>Infusioni</h2>
-                <p>Scopri le migliori tisane e tè selezionati per te.</p>
-            </div>
-            <div class="section">
-                <h2>Accessori</h2>
-                <p>Dalle tazze agli infusori, tutto ciò che ti serve.</p>
-            </div>
-            <div class="section">
-                <h2>Personalizza</h2>
-                <p>Crea il tuo tè perfetto e un’esperienza unica.</p>
-            </div>
-        </div>
+        <h1>E'... L'ora del tè</h1>
     </div>
 
-    <!-- Popup Newsletter -->
-    <div class="newsletter-popup" id="newsletterPopup">
-        <div class="newsletter-content">
-            <h2>Iscriviti alla Newsletter</h2>
-            <p>Ricevi offerte esclusive e scopri le novità sul nostro tè.</p>
-            <input type="email" placeholder="Inserisci la tua email" id="emailInput">
-            <button onclick="closePopup()">Iscriviti</button>
+    <!-- Sezioni principali -->
+    <div class="sections">
+        <div class="section">
+            <h2>Infusioni</h2>
+            <p>Scopri le migliori tisane e tè selezionati per te.</p>
+        </div>
+        <div class="section">
+            <h2>Accessori</h2>
+            <p>Dalle tazze agli infusori, tutto ciò che ti serve.</p>
+        </div>
+        <div class="section">
+            <h2>Personalizzazione</h2>
+            <p>Crea il tuo tè perfetto e un’esperienza unica.</p>
         </div>
     </div>
 
@@ -179,19 +114,5 @@
             <a href="https://tiktok.com" target="_blank">TikTok</a>
         </p>
     </footer>
-
-    <script>
-        // Mostra il popup dopo 2 secondi
-        window.onload = function () {
-            setTimeout(function () {
-                document.getElementById('newsletterPopup').classList.add('active');
-            }, 2000);
-        };
-
-        // Chiudi il popup
-        function closePopup() {
-            document.getElementById('newsletterPopup').classList.remove('active');
-        }
-    </script>
 </body>
 </html>
