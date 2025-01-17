@@ -20,84 +20,14 @@
             line-height: 1.6;
         }
 
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background-color: #4b3832;
-            color: #fff;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-        }
-
-        .navbar ul {
-            display: flex;
-            list-style: none;
-        }
-
-        .navbar ul li {
-            margin-left: 20px;
-        }
-
-        .navbar ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .navbar ul li a:hover {
-            color: #faebd7; /* Beige tenue */
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 80vh;
-            background: url('https://source.unsplash.com/1600x900/?tea,table') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        /* Titolo principale */
+        .main-title {
             text-align: center;
-            color: #fff;
-            padding: 20px;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-family: 'Playfair Display', serif;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin: 20px 0;
-        }
-
-        .hero button {
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border: none;
-            background-color: #faebd7;
+            margin-top: 20px;
+            margin-bottom: 30px;
             color: #4b3832;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .hero button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         /* Sezioni principali */
@@ -105,33 +35,44 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            padding: 40px 50px;
+            padding: 0 50px;
         }
 
         .section {
+            height: 250px; /* Sezioni alte */
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            padding: 20px;
+            position: relative;
+            overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .section:hover {
-            transform: translateY(-5px);
+            transform: scale(1.05);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
-        .section img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 15px;
+        .section h2 {
+            font-size: 2rem;
+            text-align: center;
+            padding: 20px;
+            font-family: 'Playfair Display', serif;
         }
 
-        .section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+        /* Cascata effetto */
+        .section:hover .cascade {
+            height: 100%; /* Apre l'immagine a cascata */
+        }
+
+        .cascade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: rgba(200, 200, 200, 0.5); /* Temporaneo per rappresentare l'immagine */
+            transition: height 0.5s ease-in-out;
         }
 
         /* Footer */
@@ -204,39 +145,24 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <div class="navbar">
-        <h1>E'... L'ora del tè</h1>
-        <ul>
-            <li><a href="#infusioni">Infusioni</a></li>
-            <li><a href="#accessori">Accessori</a></li>
-            <li><a href="#personalizzazione">Personalizzazione</a></li>
-        </ul>
-    </div>
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>E'... L'ora del tè</h1>
-        <p>Scopri il piacere di un buon tè, ogni giorno.</p>
-        <button onclick="subscribe()">Iscriviti alla Newsletter</button>
+    <!-- Titolo principale -->
+    <div class="main-title">
+        E'... L'ora del tè
     </div>
 
     <!-- Sezioni principali -->
     <div class="sections">
-        <div class="section" id="infusioni">
-            <img src="https://source.unsplash.com/300x200/?tea" alt="Infusioni">
+        <div class="section">
             <h2>Infusioni</h2>
-            <p>Scopri tisane e tè per ogni momento della giornata.</p>
+            <div class="cascade"></div>
         </div>
-        <div class="section" id="accessori">
-            <img src="https://source.unsplash.com/300x200/?teacup" alt="Accessori">
+        <div class="section">
             <h2>Accessori</h2>
-            <p>Tutto ciò che ti serve per un tè perfetto.</p>
+            <div class="cascade"></div>
         </div>
-        <div class="section" id="personalizzazione">
-            <img src="https://source.unsplash.com/300x200/?tea-leaves" alt="Personalizzazione">
+        <div class="section">
             <h2>Personalizzazione</h2>
-            <p>Crea la tua miscela su misura.</p>
+            <div class="cascade"></div>
         </div>
     </div>
 
@@ -258,11 +184,14 @@
     </div>
 
     <script>
-        // Gestione Newsletter Popup
-        function subscribe() {
-            document.getElementById('newsletter').classList.add('active');
-        }
+        // Mostra il pop-up della newsletter dopo 3 secondi
+        window.onload = () => {
+            setTimeout(() => {
+                document.getElementById('newsletter').classList.add('active');
+            }, 3000);
+        };
 
+        // Chiudi il pop-up della newsletter
         function closeNewsletter() {
             document.getElementById('newsletter').classList.remove('active');
         }
