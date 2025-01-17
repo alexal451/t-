@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E'... L'ora del tè</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         /* Stile generale */
         * {
@@ -14,10 +14,37 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            color: #4b3832;
-            background-color: #F5F5DC; /* Beige chiaro */
+            font-family: 'Lora', serif;
+            color: #333; /* Un colore più scuro per un look sofisticato */
+            background-color: #ECE5C7; /* Un beige più sofisticato */
             line-height: 1.6;
+        }
+
+        /* Navigazione */
+        nav {
+            background-color: #A68D66; /* Un marrone dorato per la barra di navigazione */
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #D4AF37; /* Oro per l'hover */
         }
 
         /* Titolo principale */
@@ -25,87 +52,80 @@
             text-align: center;
             font-size: 3.5rem;
             font-family: 'Playfair Display', serif;
-            margin-top: 20px;
-            margin-bottom: 30px;
-            color: #4b3832;
+            margin: 40px 0;
+            color: #A68D66;
         }
 
         /* Sezioni principali */
         .sections {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 0 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 0 50px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .section {
-            height: 250px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease-in-out;
+            background-color: #F5F5DC; /* Beige chiaro per le sezioni */
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
         }
 
         .section:hover {
-            height: 400px; /* Altezza aumentata al passaggio del mouse */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
         }
 
         .section h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             text-align: center;
-            padding: 20px;
-            font-family: 'Playfair Display', serif;
+            padding: 25px 20px 10px;
+            color: #A68D66;
         }
 
         .section p {
             text-align: center;
-            padding: 0 20px 20px;
+            padding: 0 20px 25px;
+            font-style: italic;
+            color: #666;
         }
 
         .cascade {
-            position: absolute;
-            top: 100%; /* Inizia fuori dalla vista */
-            left: 0;
-            width: 100%;
-            height: 150px;
-            background-color: rgba(200, 200, 200, 0.5); /* Temporaneo per rappresentare l'immagine */
-            transition: top 0.5s ease-in-out;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: none;
+            background-color: #D4AF37; /* Oro per l'effetto cascata */
+            padding: 20px;
+            text-align: center;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
         }
 
         .section:hover .cascade {
-            top: 250px; /* Si espande verso il basso */
+            display: block;
         }
 
         .cascade a {
-            color: #4b3832;
+            color: #333;
             text-decoration: none;
-            font-size: 1.2rem;
             font-weight: bold;
             padding: 10px 20px;
             background-color: #fff;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
         }
 
         .cascade a:hover {
-            background-color: #faebd7;
+            background-color: #A68D66;
+            color: #fff;
         }
 
         /* Footer */
         footer {
-            background-color: #4b3832;
+            background-color: #333;
             color: #fff;
             padding: 30px;
             text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
         }
 
         footer .social-links a {
@@ -116,7 +136,7 @@
         }
 
         footer .social-links a:hover {
-            color: #faebd7;
+            color: #D4AF37;
         }
 
         footer p {
@@ -129,18 +149,20 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #4b3832;
+            background-color: #A68D66;
             color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 15px 25px;
+            border-radius: 50%;
             text-align: center;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .customer-service:hover {
-            background-color: #faebd7;
-            color: #4b3832;
+            background-color: #D4AF37;
+            transform: scale(1.1);
         }
 
         /* Newsletter Popup */
@@ -150,7 +172,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background: #fff;
-            padding: 20px;
+            padding: 30px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             border-radius: 10px;
             z-index: 1000;
@@ -162,21 +184,22 @@
         }
 
         #newsletter h3 {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            color: #A68D66;
         }
 
         #newsletter input {
-            padding: 10px;
+            padding: 12px;
             margin-right: 10px;
-            width: calc(100% - 120px);
+            width: calc(100% - 130px);
             border: 1px solid #ccc;
             border-radius: 5px;
         }
 
         #newsletter button {
-            padding: 10px 20px;
+            padding: 12px 20px;
             border: none;
-            background: #4b3832;
+            background: #A68D66;
             color: #fff;
             cursor: pointer;
             border-radius: 5px;
@@ -184,11 +207,22 @@
         }
 
         #newsletter button:hover {
-            background: #faebd7;
+            background: #D4AF37;
         }
     </style>
 </head>
 <body>
+    <!-- Navigazione -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#infusioni">Infusioni</a></li>
+            <li><a href="#accessori">Accessori</a></li>
+            <li><a href="#personalizzati">Personalizzati</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+        </ul>
+    </nav>
+
     <!-- Titolo principale -->
     <div class="main-title">
         E'... L'ora del tè
@@ -200,21 +234,21 @@
             <h2>Infusioni</h2>
             <p>Ricchissime selezioni di infusioni che rispecchiano qualità e naturalezza.</p>
             <div class="cascade">
-                <a href="infusioni.html">Portami qui!</a>
+                <a href="infusioni.html">Scopri di più</a>
             </div>
         </div>
         <div class="section" onclick="location.href='accessori.html';">
             <h2>Accessori</h2>
             <p>Tutti gli accessori per degustare nel modo migliore e con stile le tue infusioni.</p>
             <div class="cascade">
-                <a href="accessori.html">Portami qui!</a>
+                <a href="accessori.html">Scopri di più</a>
             </div>
         </div>
-        <div class="section" onclick="location.href='personalizzazione.html';">
-            <h2>Personalizzazione</h2>
-            <p>Un'unione tra te e quello che porto sul mio canale.</p>
+        <div class="section" onclick="location.href='personalizzati.html';">
+            <h2>Personalizzati</h2>
+            <p>Prodotti unici personalizzati per te.</p>
             <div class="cascade">
-                <a href="personalizzazione.html">Portami qui!</a>
+                <a href="personalizzati.html">Scopri di più</a>
             </div>
         </div>
     </div>
@@ -231,7 +265,7 @@
 
     <!-- Assistenza Clienti -->
     <div class="customer-service" onclick="location.href='assistenza.html';">
-        Assistenza Clienti
+        Assistenza
     </div>
 
     <!-- Newsletter Popup -->
