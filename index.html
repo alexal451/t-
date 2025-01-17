@@ -46,6 +46,7 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease-in-out;
+            cursor: pointer;
         }
 
         .section:hover {
@@ -59,6 +60,11 @@
             font-family: 'Playfair Display', serif;
         }
 
+        .section p {
+            text-align: center;
+            padding: 0 20px 20px;
+        }
+
         .cascade {
             position: absolute;
             top: 100%; /* Inizia fuori dalla vista */
@@ -67,10 +73,28 @@
             height: 150px;
             background-color: rgba(200, 200, 200, 0.5); /* Temporaneo per rappresentare l'immagine */
             transition: top 0.5s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .section:hover .cascade {
             top: 250px; /* Si espande verso il basso */
+        }
+
+        .cascade a {
+            color: #4b3832;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cascade a:hover {
+            background-color: #faebd7;
         }
 
         /* Footer */
@@ -98,6 +122,25 @@
         footer p {
             margin-top: 10px;
             font-size: 0.9rem;
+        }
+
+        /* Assistenza Clienti */
+        .customer-service {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4b3832;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .customer-service:hover {
+            background-color: #faebd7;
+            color: #4b3832;
         }
 
         /* Newsletter Popup */
@@ -153,17 +196,26 @@
 
     <!-- Sezioni principali -->
     <div class="sections">
-        <div class="section">
+        <div class="section" onclick="location.href='infusioni.html';">
             <h2>Infusioni</h2>
-            <div class="cascade"></div>
+            <p>Ricchissime selezioni di infusioni che rispecchiano qualità e naturalezza.</p>
+            <div class="cascade">
+                <a href="infusioni.html">Portami qui!</a>
+            </div>
         </div>
-        <div class="section">
+        <div class="section" onclick="location.href='accessori.html';">
             <h2>Accessori</h2>
-            <div class="cascade"></div>
+            <p>Tutti gli accessori per degustare nel modo migliore e con stile le tue infusioni.</p>
+            <div class="cascade">
+                <a href="accessori.html">Portami qui!</a>
+            </div>
         </div>
-        <div class="section">
+        <div class="section" onclick="location.href='personalizzazione.html';">
             <h2>Personalizzazione</h2>
-            <div class="cascade"></div>
+            <p>Un'unione tra te e quello che porto sul mio canale.</p>
+            <div class="cascade">
+                <a href="personalizzazione.html">Portami qui!</a>
+            </div>
         </div>
     </div>
 
@@ -176,6 +228,11 @@
         </div>
         <p>© 2025 E'... L'ora del tè. Tutti i diritti riservati.</p>
     </footer>
+
+    <!-- Assistenza Clienti -->
+    <div class="customer-service" onclick="location.href='assistenza.html';">
+        Assistenza Clienti
+    </div>
 
     <!-- Newsletter Popup -->
     <div id="newsletter">
