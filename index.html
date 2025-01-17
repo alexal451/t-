@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>È... l'ora del tè</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Stile generale */
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5dc; /* Beige chiaro */
+            font-family: 'Lora', serif;
+            background-color: #F5F5DC; /* Beige chiaro */
             color: #4b3832; /* Tono marrone scuro */
         }
 
@@ -23,12 +24,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             color: #fff;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 10px;
@@ -38,7 +40,8 @@
         .sections {
             display: flex;
             justify-content: space-around;
-            padding: 50px 20px;
+            padding: 20px 10px;
+            margin-top: -50px;
         }
 
         .section {
@@ -51,13 +54,32 @@
         }
 
         .section h2 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 10px;
         }
 
         .section p {
             font-size: 1rem;
             line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #4b3832; /* Marrone scuro */
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: #f5f5dc; /* Beige chiaro */
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         /* Popup Newsletter */
@@ -122,21 +144,20 @@
     <!-- Hero Section -->
     <div class="hero">
         <h1>È... l'ora del tè</h1>
-    </div>
-
-    <!-- Sezioni del sito -->
-    <div class="sections">
-        <div class="section">
-            <h2>Infusioni</h2>
-            <p>Scopri le migliori tisane e tè selezionati per te.</p>
-        </div>
-        <div class="section">
-            <h2>Accessori</h2>
-            <p>Dalle tazze agli infusori, tutto ciò che ti serve.</p>
-        </div>
-        <div class="section">
-            <h2>Personalizza</h2>
-            <p>Crea il tuo tè perfetto e un’esperienza unica.</p>
+        <!-- Sezioni in alto -->
+        <div class="sections">
+            <div class="section">
+                <h2>Infusioni</h2>
+                <p>Scopri le migliori tisane e tè selezionati per te.</p>
+            </div>
+            <div class="section">
+                <h2>Accessori</h2>
+                <p>Dalle tazze agli infusori, tutto ciò che ti serve.</p>
+            </div>
+            <div class="section">
+                <h2>Personalizza</h2>
+                <p>Crea il tuo tè perfetto e un’esperienza unica.</p>
+            </div>
         </div>
     </div>
 
@@ -149,6 +170,15 @@
             <button onclick="closePopup()">Iscriviti</button>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Seguimi su ---> 
+            <a href="https://instagram.com" target="_blank">Instagram</a>, 
+            <a href="https://youtube.com" target="_blank">YouTube</a>, 
+            <a href="https://tiktok.com" target="_blank">TikTok</a>
+        </p>
+    </footer>
 
     <script>
         // Mostra il popup dopo 2 secondi
