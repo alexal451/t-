@@ -15,14 +15,17 @@
 
         body {
             font-family: 'Lora', serif;
-            color: #333; /* Un colore più scuro per un look sofisticato */
-            background-color: #ECE5C7; /* Un beige più sofisticato */
+            color: #333;
+            background-color: #ECE5C7;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* Navigazione */
         nav {
-            background-color: #A68D66; /* Un marrone dorato per la barra di navigazione */
+            background-color: #A68D66;
             padding: 15px 0;
             position: sticky;
             top: 0;
@@ -44,7 +47,7 @@
         }
 
         nav ul li a:hover {
-            color: #D4AF37; /* Oro per l'hover */
+            color: #D4AF37;
         }
 
         /* Titolo principale */
@@ -56,22 +59,36 @@
             color: #A68D66;
         }
 
-        /* Sezioni principali */
+        /* Sezioni principali - Layout a V */
         .sections {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            padding: 0 50px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 50px;
+        }
+
+        .section-wrapper {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section {
-            background-color: #F5F5DC; /* Beige chiaro per le sezioni */
+            background-color: #F5F5DC;
             border-radius: 15px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            width: 30%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section:nth-child(1) {
+            margin-bottom: 30px;
         }
 
         .section:hover {
@@ -81,29 +98,38 @@
 
         .section h2 {
             font-size: 2.2rem;
-            text-align: center;
             padding: 25px 20px 10px;
             color: #A68D66;
         }
 
         .section p {
-            text-align: center;
             padding: 0 20px 25px;
             font-style: italic;
             color: #666;
         }
 
+        /* Modifica della tendina a cascata */
         .cascade {
             display: none;
-            background-color: #D4AF37; /* Oro per l'effetto cascata */
+            background-color: #D4AF37;
             padding: 20px;
-            text-align: center;
             border-bottom-left-radius: 15px;
             border-bottom-right-radius: 15px;
+            position: absolute;
+            width: 100%;
+            transition: all 0.3s ease;
         }
 
-        .section:hover .cascade {
+        .section:nth-child(1):hover .cascade {
             display: block;
+            bottom: 100%;
+            transform: translateY(100%);
+        }
+
+        .section:nth-child(2):hover .cascade, .section:nth-child(3):hover .cascade {
+            display: block;
+            top: 100%;
+            transform: translateY(-100%);
         }
 
         .cascade a {
@@ -126,6 +152,7 @@
             color: #fff;
             padding: 30px;
             text-align: center;
+            margin-top: auto; /* Spinge il footer in fondo alla pagina */
         }
 
         footer .social-links a {
@@ -228,7 +255,7 @@
         E'... L'ora del tè
     </div>
 
-    <!-- Sezioni principali -->
+    <!-- Sezioni principali - Layout a V -->
     <div class="sections">
         <div class="section" onclick="location.href='infusioni.html';">
             <h2>Infusioni</h2>
@@ -237,18 +264,20 @@
                 <a href="infusioni.html">Scopri di più</a>
             </div>
         </div>
-        <div class="section" onclick="location.href='accessori.html';">
-            <h2>Accessori</h2>
-            <p>Tutti gli accessori per degustare nel modo migliore e con stile le tue infusioni.</p>
-            <div class="cascade">
-                <a href="accessori.html">Scopri di più</a>
+        <div class="section-wrapper">
+            <div class="section" onclick="location.href='accessori.html';">
+                <h2>Accessori</h2>
+                <p>Tutti gli accessori per degustare nel modo migliore e con stile le tue infusioni.</p>
+                <div class="cascade">
+                    <a href="accessori.html">Scopri di più</a>
+                </div>
             </div>
-        </div>
-        <div class="section" onclick="location.href='personalizzati.html';">
-            <h2>Personalizzati</h2>
-            <p>Prodotti unici personalizzati per te.</p>
-            <div class="cascade">
-                <a href="personalizzati.html">Scopri di più</a>
+            <div class="section" onclick="location.href='personalizzati.html';">
+                <h2>Personalizzati</h2>
+                <p>Prodotti unici personalizzati per te.</p>
+                <div class="cascade">
+                    <a href="personalizzati.html">Scopri di più</a>
+                </div>
             </div>
         </div>
     </div>
