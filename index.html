@@ -23,6 +23,62 @@
             min-height: 100vh;
         }
 
+        /* Banner rosso */
+        .banner {
+            background-color: #d32f2f; /* Rosso scuro */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Intestazione */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: white;
+            border-bottom: 1px solid #ccc;
+        }
+
+        /* Logo */
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        /* Menu di navigazione */
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav ul li {
+            text-transform: capitalize;
+        }
+
+        .nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .nav ul li a:hover {
+            color: #d32f2f;
+        }
+
+        /* Icone a destra */
+        .icons a img {
+            height: 24px;
+            width: 24px;
+            margin-left: 15px;
+            vertical-align: middle;
+        }
+
         /* Navigazione */
         nav {
             background-color: #A68D66;
@@ -243,6 +299,36 @@
     </style>
 </head>
 <body>
+    <!-- Banner rosso -->
+    <div class="banner">
+        Offerte
+    </div>
+
+    <!-- Intestazione -->
+    <header class="header">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo del Sito">
+        </div>
+
+        <!-- Menu di navigazione -->
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Categorie</a></li>
+                <li><a href="#">Prodotti</a></li>
+                <li><a href="#">Offerte</a></li>
+                <li><a href="#">Contatti</a></li>
+            </ul>
+        </nav>
+
+        <!-- Icone in alto a destra -->
+        <div class="icons">
+            <a href="#"><img src="images/search-icon.png" alt="Cerca"></a>
+            <a href="#"><img src="images/cart-icon.png" alt="Carrello"></a>
+        </div>
+    </header>
+
     <!-- Navigazione -->
     <nav>
         <ul>
@@ -282,7 +368,6 @@
             <p>Ricchissime selezioni di infusioni che rispecchiano qualità e naturalezza.</p>
             <div class="cascade">
                 <a href="infusioni.html">Scopri di più</a>
-                <!-- Puoi aggiungere altro contenuto qui per estendere la tendina -->
             </div>
         </div>
     </div>
@@ -310,17 +395,4 @@
     </div>
 
     <script>
-        // Mostra il pop-up della newsletter dopo 3 secondi
-        window.onload = () => {
-            setTimeout(() => {
-                document.getElementById('newsletter').classList.add('active');
-            }, 3000);
-        };
-
-        // Chiudi il pop-up della newsletter
-        function closeNewsletter() {
-            document.getElementById('newsletter').classList.remove('active');
-        }
-    </script>
-</body>
-</html>
+        // Mostra il pop-up della newsletter dopo 3 secondiOops, something broke. Talk to me later?
