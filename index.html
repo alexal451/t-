@@ -395,4 +395,17 @@
     </div>
 
     <script>
-        // Mostra il pop-up della newsletter dopo 3 secondiOops, something broke. Talk to me later?
+             // Mostra il pop-up della newsletter dopo 3 secondi
+        window.onload = () => {
+            setTimeout(() => {
+                document.getElementById('newsletter').classList.add('active');
+            }, 3000);
+        };
+
+        // Chiudi il pop-up della newsletter
+        function closeNewsletter() {
+            document.getElementById('newsletter').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
