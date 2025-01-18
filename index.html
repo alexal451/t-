@@ -1,326 +1,227 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E'... L'ora del tè</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        /* Stile generale */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagina - Layout Header</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
 
-        body {
-            font-family: 'Lora', serif;
-            color: #333;
-            background-color: #ECE5C7;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    /* Linea delle offerte */
+    .offer-line {
+      background-color: #d32f2f;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      font-size: 14px;
+      font-weight: bold;
+    }
 
-        /* Navigazione */
-        nav {
-            background-color: #A68D66;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    /* Header principale */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+    /* Logo */
+    .header .logo img {
+      height: 50px;
+      width: auto;
+    }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
+    /* Menu */
+    .header .menu {
+      display: flex;
+      gap: 20px;
+    }
 
-        nav ul li a:hover {
-            color: #D4AF37;
-        }
+    .header .menu a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      font-weight: bold;
+    }
 
-        /* Titolo principale */
-        .main-title {
-            text-align: center;
-            font-size: 3.5rem;
-            font-family: 'Playfair Display', serif;
-            margin: 40px 0;
-            color: #A68D66;
-        }
+    .header .menu a:hover {
+      color: #d32f2f;
+    }
 
-        /* Sezioni principali - Layout a V */
-        .sections {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-bottom: 50px;
-        }
+    /* Icone */
+    .header .icons {
+      display: flex;
+      gap: 15px;
+    }
 
-        .section-wrapper {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto 30px;
-        }
+    .header .icons a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+    }
 
-        .section {
-            background-color: #F5F5DC;
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            width: 30%;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+    .header .icons a:hover {
+      color: #d32f2f;
+    }
 
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-        }
+    /* Banner principale */
+    .main-banner {
+      position: relative;
+      text-align: center;
+      color: #fff;
+    }
 
-        .section h2 {
-            font-size: 2.2rem;
-            padding: 25px 20px 10px;
-            color: #A68D66;
-        }
+    .main-banner img {
+      width: 100%;
+      height: auto;
+    }
 
-        .section p {
-            padding: 0 20px 25px;
-            font-style: italic;
-            color: #666;
-        }
+    .main-banner .banner-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px 30px;
+      border-radius: 5px;
+    }
 
-        /* Modifica della tendina a cascata */
-        .cascade {
-            display: none;
-            background-color: #D4AF37;
-            padding: 20px;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-            position: absolute;
-            width: 100%;
-            height: 200px; /* Aumentata l'altezza per una tendina più lunga */
-            transition: all 0.5s ease, opacity 0.5s ease; /* Transizione più lenta per l'apertura */
-            opacity: 0;
-        }
+    .main-banner .banner-content h1 {
+      margin: 0;
+      font-size: 36px;
+      font-weight: bold;
+    }
 
-        .section:nth-child(1):hover .cascade {
-            display: block;
-            bottom: 100%;
-            transform: translateY(100%);
-            opacity: 1;
-        }
+    .main-banner .banner-content p {
+      margin: 10px 0;
+      font-size: 18px;
+    }
 
-        .section:nth-child(2):hover .cascade, .section:nth-child(3):hover .cascade {
-            display: block;
-            top: 100%;
-            transform: translateY(-100%);
-            opacity: 1;
-        }
+    .main-banner .banner-content button {
+      background-color: #d32f2f;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
 
-        .cascade a {
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            position: absolute;
-            bottom: 20px; /* Posiziona il link verso il basso della tendina */
-            left: 50%;
-            transform: translateX(-50%);
-        }
+    .main-banner .banner-content button:hover {
+      background-color: #b71c1c;
+    }
 
-        .cascade a:hover {
-            background-color: #A68D66;
-            color: #fff;
-        }
+    /* Stili aggiuntivi (sezione già esistente) */
+    .product-section {
+      padding: 20px;
+      text-align: center;
+    }
 
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 30px;
-            text-align: center;
-            margin-top: auto;
-        }
+    .product-section h2 {
+      font-size: 28px;
+      color: #333;
+    }
 
-        footer .social-links a {
-            margin: 0 10px;
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
+    .product-section .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
 
-        footer .social-links a:hover {
-            color: #D4AF37;
-        }
+    .product-section .product {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      max-width: 200px;
+    }
 
-        footer p {
-            margin-top: 10px;
-            font-size: 0.9rem;
-        }
+    .product-section .product img {
+      width: 100%;
+      height: auto;
+    }
 
-        /* Assistenza Clienti */
-        .customer-service {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #A68D66;
-            color: #fff;
-            padding: 15px 25px;
-            border-radius: 50%;
-            text-align: center;
-            cursor: pointer;
-            font-size: 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, transform 0.3s;
-        }
+    .product-section .product h3 {
+      font-size: 18px;
+      color: #333;
+      margin: 10px 0;
+    }
 
-        .customer-service:hover {
-            background-color: #D4AF37;
-            transform: scale(1.1);
-        }
-
-        /* Newsletter Popup */
-        #newsletter {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #fff;
-            padding: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            z-index: 1000;
-            display: none;
-        }
-
-        #newsletter.active {
-            display: block;
-        }
-
-        #newsletter h3 {
-            margin-bottom: 20px;
-            color: #A68D66;
-        }
-
-        #newsletter input {
-            padding: 12px;
-            margin-right: 10px;
-            width: calc(100% - 130px);
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        #newsletter button {
-            padding: 12px 20px;
-            border: none;
-            background: #A68D66;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        #newsletter button:hover {
-            background: #D4AF37;
-        }
-    </style>
+    .product-section .product p {
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigazione -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#infusioni">Infusioni</a></li>
-            <li><a href="#accessori">Accessori</a></li>
-            <li><a href="#personalizzati">Personalizzati</a></li>
-            <li><a href="#contatti">Contatti</a></li>
-        </ul>
+
+  <!-- Linea delle offerte -->
+  <div class="offer-line">
+    Offerte
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="logo-placeholder.png" alt="Logo">
+    </div>
+
+    <!-- Menu -->
+    <nav class="menu">
+      <a href="#">Home</a>
+      <a href="#">Panettoni Artigianali</a>
+      <a href="#">Senza Glutine</a>
+      <a href="#">Creme Spalmabili</a>
+      <a href="#">Dolci Tipici</a>
+      <a href="#">Cannoli Siciliani</a>
+      <a href="#">Assistenza Clienti</a>
     </nav>
 
-    <!-- Titolo principale -->
-    <div class="main-title">
-        E'... L'ora del tè
+    <!-- Icone -->
+    <div class="icons">
+      <a href="#" title="Cerca">🔍</a>
+      <a href="#" title="Account">👤</a>
+      <a href="#" title="Carrello">🛒</a>
     </div>
+  </header>
 
-    <!-- Sezioni principali - Layout a V -->
-    <div class="sections">
-        <div class="section-wrapper">
-            <div class="section" onclick="location.href='accessori.html';">
-                <h2>Accessori</h2>
-                <p>Tutti gli accessori per degustare nel modo migliore e con stile le tue infusioni.</p>
-                <div class="cascade">
-                    <a href="accessori.html">Scopri di più</a>
-                </div>
-            </div>
-            <div class="section" onclick="location.href='personalizzati.html';">
-                <h2>Personalizzati</h2>
-                <p>Prodotti unici personalizzati per te.</p>
-                <div class="cascade">
-                    <a href="personalizzati.html">Scopri di più</a>
-                </div>
-            </div>
-        </div>
-        <div class="section" onclick="location.href='infusioni.html';">
-            <h2>Infusioni</h2>
-            <p>Ricchissime selezioni di infusioni che rispecchiano qualità e naturalezza.</p>
-            <div class="cascade">
-                <a href="infusioni.html">Scopri di più</a>
-                <!-- Puoi aggiungere altro contenuto qui per estendere la tendina -->
-            </div>
-        </div>
+  <!-- Banner principale -->
+  <div class="main-banner">
+    <img src="banner-placeholder.jpg" alt="Panettone">
+    <div class="banner-content">
+      <h1>ULTIMA INFORNATA</h1>
+      <p>-25% di Sconto sugli ultimi Panettoni</p>
+      <button>ACQUISTA ORA</button>
     </div>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="social-links">
-            <a href="https://instagram.com" target="_blank">Instagram</a>
-            <a href="https://youtube.com" target="_blank">YouTube</a>
-            <a href="https://tiktok.com" target="_blank">TikTok</a>
-        </div>
-        <p>© 2025 E'... L'ora del tè. Tutti i diritti riservati.</p>
-    </footer>
-
-    <!-- Assistenza Clienti -->
-    <div class="customer-service" onclick="location.href='assistenza.html';">
-        Assistenza
+  <!-- Sezione prodotti (già fornita) -->
+  <div class="product-section">
+    <h2>Prodotti</h2>
+    <div class="products">
+      <div class="product">
+        <img src="panettone1.jpg" alt="Panettone">
+        <h3>Panettone Classico</h3>
+        <p>Un panettone tradizionale dal gusto unico.</p>
+      </div>
+      <div class="product">
+        <img src="panettone2.jpg" alt="Panettone">
+        <h3>Panettone al Cioccolato</h3>
+        <p>Delizioso panettone con gocce di cioccolato.</p>
+      </div>
+      <div class="product">
+        <img src="panettone3.jpg" alt="Panettone">
+        <h3>Panettone Senza Glutine</h3>
+        <p>Adatto per chi è intollerante al glutine.</p>
+      </div>
     </div>
+  </div>
 
-    <!-- Newsletter Popup -->
-    <div id="newsletter">
-        <h3>Iscriviti alla Newsletter</h3>
-        <input type="email" placeholder="Inserisci la tua email">
-        <button onclick="closeNewsletter()">Iscriviti</button>
-    </div>
-
-    <script>
-        // Mostra il pop-up della newsletter dopo 3 secondi
-        window.onload = () => {
-            setTimeout(() => {
-                document.getElementById('newsletter').classList.add('active');
-            }, 3000);
-        };
-
-        // Chiudi il pop-up della newsletter
-        function closeNewsletter() {
-            document.getElementById('newsletter').classList.remove('active');
-        }
-    </script>
 </body>
 </html>
