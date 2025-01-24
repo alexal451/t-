@@ -1,29 +1,23 @@
-// Script for basic interactivity
+// Mostra il pop-up della newsletter dopo 3 secondi
+window.onload = () => {
+    setTimeout(() => {
+        document.getElementById('newsletter').classList.add('active');
+    }, 3000);
+};
 
-// Add event listener for DOMContentLoaded to ensure the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", () => {
-    // Example: Dynamic message in the footer
-    const footer = document.querySelector("footer p");
-    const year = new Date().getFullYear();
-    footer.textContent = `© ${year} Your Website Name. All rights reserved.`;
+// Chiudi il pop-up della newsletter
+function subscribeToNewsletter() {
+    const email = document.getElementById('emailInput').value;
+    if (email) {
+        // Qui potresti aggiungere la logica per inviare l'email a un server
+        alert('Iscrizione alla newsletter completata!'); // Placeholder per conferma
+        document.getElementById('newsletter').classList.remove('active');
+    } else {
+        alert('Per favore, inserisci un indirizzo email.');
+    }
+}
 
-    // Example: Add smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll("nav a");
-    navLinks.forEach(link => {
-        link.addEventListener("click", (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute("href").substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
-        });
-    });
-
-    console.log("Script.js loaded successfully!");
-});
-
+// Funzione per navigare a una pagina
+function navigateTo(url) {
+    window.location.href = url;
+}
