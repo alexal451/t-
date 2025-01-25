@@ -20,27 +20,31 @@
         </div>
         <nav class="nav">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Categorie</a></li>
-                <li><a href="#">Prodotti</a></li>
-                <li><a href="#">Offerte</a></li>
-                <li><a href="#">Contatti</a></li>
+                <li><a href="#" aria-label="Torna alla Home">Home</a></li>
+                <li><a href="#" aria-label="Vedi Categorie">Categorie</a></li>
+                <li><a href="#" aria-label="Vedi Prodotti">Prodotti</a></li>
+                <li><a href="#" aria-label="Vedi Offerte">Offerte</a></li>
+                <li><a href="#" aria-label="Contatti">Contatti</a></li>
             </ul>
         </nav>
+        <form class="search-form" action="#" method="get">
+            <input type="search" id="site-search" name="q" placeholder="Cerca...">
+            <button type="submit" aria-label="Avvia ricerca"><img src="images/search-icon.png" alt="Cerca"></button>
+        </form>
         <div class="icons">
-            <a href="#"><img src="images/search-icon.png" alt="Cerca"></a>
-            <a href="#"><img src="images/cart-icon.png" alt="Carrello"></a>
+            <a href="#" aria-label="Cerca"><img src="images/search-icon.png" alt="Cerca"></a>
+            <a href="#" aria-label="Carrello"><img src="images/cart-icon.png" alt="Carrello"></a>
         </div>
     </header>
 
     <!-- Navigazione -->
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#infusioni">Infusioni</a></li>
-            <li><a href="#accessori">Accessori</a></li>
-            <li><a href="#personalizzati">Personalizzati</a></li>
-            <li><a href="#contatti">Contatti</a></li>
+            <li><a href="#home" aria-label="Home">Home</a></li>
+            <li><a href="#infusioni" aria-label="Infusioni">Infusioni</a></li>
+            <li><a href="#accessori" aria-label="Accessori">Accessori</a></li>
+            <li><a href="#personalizzati" aria-label="Personalizzati">Personalizzati</a></li>
+            <li><a href="#contatti" aria-label="Contatti">Contatti</a></li>
         </ul>
     </nav>
 
@@ -52,26 +56,26 @@
     <!-- Sezioni principali - Layout a V -->
     <div class="sections">
         <div class="section-wrapper">
-            <div class="section" onclick="navigateTo('accessori.html');">
+            <div class="section" data-url="accessori.html" aria-label="Vai agli Accessori">
                 <h2>Accessori</h2>
                 <p>Tutti gli accessori per degustare nel modo migliore e con stile le tue infusioni.</p>
                 <div class="cascade">
-                    <a href="accessori.html">Scopri di più</a>
+                    <a href="accessori.html" aria-label="Scopri di più sugli Accessori">Scopri di più</a>
                 </div>
             </div>
-            <div class="section" onclick="navigateTo('personalizzati.html');">
+            <div class="section" data-url="personalizzati.html" aria-label="Vai ai Prodotti Personalizzati">
                 <h2>Personalizzati</h2>
                 <p>Prodotti unici personalizzati per te.</p>
                 <div class="cascade">
-                    <a href="personalizzati.html">Scopri di più</a>
+                    <a href="personalizzati.html" aria-label="Scopri di più sui Personalizzati">Scopri di più</a>
                 </div>
             </div>
         </div>
-        <div class="section" onclick="navigateTo('infusioni.html');">
+        <div class="section" data-url="infusioni.html" aria-label="Vai alle Infusioni">
             <h2>Infusioni</h2>
             <p>Ricchissime selezioni di infusioni che rispecchiano qualità e naturalezza.</p>
             <div class="cascade">
-                <a href="infusioni.html">Scopri di più</a>
+                <a href="infusioni.html" aria-label="Scopri di più sulle Infusioni">Scopri di più</a>
             </div>
         </div>
     </div>
@@ -79,27 +83,27 @@
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="https://instagram.com" target="_blank">Instagram</a>
-            <a href="https://youtube.com" target="_blank">YouTube</a>
-            <a href="https://tiktok.com" target="_blank">TikTok</a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">Instagram</a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube">YouTube</a>
+            <a href="https://tiktok.com" target="_blank" aria-label="TikTok">TikTok</a>
         </div>
         <p>© 2025 E'... L'ora del tè. Tutti i diritti riservati.</p>
     </footer>
 
     <!-- Assistenza Clienti -->
-    <div class="customer-service" onclick="navigateTo('assistenza.html');">
+    <div class="customer-service" onclick="navigateTo('assistenza.html');" aria-label="Apri servizio assistenza">
         Assistenza
     </div>
 
     <!-- Newsletter Popup -->
     <div id="newsletter" class="newsletter-popup">
         <div class="newsletter-content">
-            <span class="close-newsletter">×</span>
+            <span class="close-newsletter" aria-label="Chiudi Newsletter">×</span>
             <h2>Iscriviti alla Nostra Newsletter</h2>
             <p>Ottieni il 10% di sconto immediato su tutto e resta aggiornato con offerte esclusive e novità!</p>
             <form id="newsletter-form">
-                <input type="email" id="emailInput" placeholder="Inserisci la tua email" required>
-                <button type="submit" onclick="subscribeToNewsletter(event)">Iscriviti</button>
+                <input type="email" id="emailInput" placeholder="Inserisci la tua email" required aria-label="Inserisci la tua email">
+                <button type="submit" aria-label="Iscriviti alla Newsletter">Iscriviti</button>
             </form>
         </div>
     </div>
