@@ -83,7 +83,7 @@
             <a href="https://youtube.com" target="_blank">YouTube</a>
             <a href="https://tiktok.com" target="_blank">TikTok</a>
         </div>
-        <p>&copy; 2025 E'... L'ora del tè. Tutti i diritti riservati.</p>
+        <p>© 2025 E'... L'ora del tè. Tutti i diritti riservati.</p>
     </footer>
 
     <!-- Assistenza Clienti -->
@@ -92,10 +92,16 @@
     </div>
 
     <!-- Newsletter Popup -->
-    <div id="newsletter">
-        <h3>Iscriviti alla Newsletter</h3>
-        <input type="email" placeholder="Inserisci la tua email" id="emailInput">
-        <button onclick="subscribeToNewsletter()">Iscriviti</button>
+    <div id="newsletter" class="newsletter-popup">
+        <div class="newsletter-content">
+            <span class="close-newsletter">×</span>
+            <h2>Iscriviti alla Nostra Newsletter</h2>
+            <p>Ottieni il 10% di sconto immediato su tutto e resta aggiornato con offerte esclusive e novità!</p>
+            <form id="newsletter-form">
+                <input type="email" id="emailInput" placeholder="Inserisci la tua email" required>
+                <button type="submit" onclick="subscribeToNewsletter(event)">Iscriviti</button>
+            </form>
+        </div>
     </div>
 
     <script src="script.js"></script>
